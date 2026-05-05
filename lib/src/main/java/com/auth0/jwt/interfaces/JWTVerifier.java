@@ -9,7 +9,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
  *
  * <pre>
  * try {
- *      JWTVerifier verifier = JWTVerifier.init(Algorithm.RSA256(publicKey, privateKey)
+ *      JWTVerifier verifier = JWTVerifier.init(Algorithm.createRSA256(publicKey, privateKey)
  *          .withIssuer("auth0")
  *          .build();
  *      DecodedJWT jwt = verifier.verify("token");
