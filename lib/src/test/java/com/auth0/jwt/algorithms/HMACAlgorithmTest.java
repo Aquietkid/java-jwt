@@ -141,7 +141,7 @@ public class HMACAlgorithmTest {
         exception.expectMessage("The Token's Signature resulted invalid when verified using the Algorithm: some-alg");
         exception.expectCause(isA(NoSuchAlgorithmException.class));
 
-        CryptoHelper crypto = mock(CryptoHelper.class);
+        CryptoHelper crypto = mock(CryptoProvider.class);
         when(crypto.verifySignatureFor(anyString(), any(byte[].class), any(String.class), any(String.class), any(byte[].class)))
                 .thenThrow(NoSuchAlgorithmException.class);
 
@@ -156,7 +156,7 @@ public class HMACAlgorithmTest {
         exception.expectMessage("The Token's Signature resulted invalid when verified using the Algorithm: some-alg");
         exception.expectCause(isA(InvalidKeyException.class));
 
-        CryptoHelper crypto = mock(CryptoHelper.class);
+        CryptoHelper crypto = mock(CryptoProvider.class);
         when(crypto.verifySignatureFor(anyString(), any(byte[].class), any(String.class), any(String.class), any(byte[].class)))
                 .thenThrow(InvalidKeyException.class);
 
@@ -250,7 +250,7 @@ public class HMACAlgorithmTest {
         exception.expectMessage("The Token's Signature couldn't be generated when signing using the Algorithm: some-algorithm");
         exception.expectCause(isA(NoSuchAlgorithmException.class));
 
-        CryptoHelper crypto = mock(CryptoHelper.class);
+        CryptoHelper crypto = mock(CryptoProvider.class);
         when(crypto.createSignatureFor(anyString(), any(byte[].class), any(byte[].class), any(byte[].class)))
                 .thenThrow(NoSuchAlgorithmException.class);
 
@@ -264,7 +264,7 @@ public class HMACAlgorithmTest {
         exception.expectMessage("The Token's Signature couldn't be generated when signing using the Algorithm: some-algorithm");
         exception.expectCause(isA(InvalidKeyException.class));
 
-        CryptoHelper crypto = mock(CryptoHelper.class);
+        CryptoHelper crypto = mock(CryptoProvider.class);
         when(crypto.createSignatureFor(anyString(), any(byte[].class), any(byte[].class), any(byte[].class)))
                 .thenThrow(InvalidKeyException.class);
 
@@ -298,7 +298,7 @@ public class HMACAlgorithmTest {
         exception.expect(SignatureVerificationException.class);
         exception.expectCause(isA(IllegalArgumentException.class));
 
-        CryptoHelper crypto = mock(CryptoHelper.class);
+        CryptoHelper crypto = mock(CryptoProvider.class);
         when(crypto.verifySignatureFor(anyString(), any(byte[].class), any(String.class), any(String.class), any(byte[].class)))
                 .thenThrow(NoSuchAlgorithmException.class);
 
