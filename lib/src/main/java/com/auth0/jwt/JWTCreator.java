@@ -253,12 +253,14 @@ public final class JWTCreator {
          *
          * @param name  the Claim's name.
          * @param value the Claim's value.
+         * @param <T>   the type of the claim value.
          * @return this same Builder instance.
          * @throws IllegalArgumentException if the name is null.
          */
         public Builder withClaim(String name, Boolean value) throws IllegalArgumentException {
             assertNonNull(name);
-            return withClaim(name, (Object) value);
+            addClaim(name, value);
+            return this;
         }
 
         /**
@@ -271,7 +273,8 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, Integer value) throws IllegalArgumentException {
             assertNonNull(name);
-            return withClaim(name, (Object) value);
+            addClaim(name, value);
+            return this;
         }
 
         /**
@@ -284,7 +287,8 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, Long value) throws IllegalArgumentException {
             assertNonNull(name);
-            return withClaim(name, (Object) value);
+            addClaim(name, value);
+            return this;
         }
 
         /**
@@ -297,7 +301,8 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, Double value) throws IllegalArgumentException {
             assertNonNull(name);
-            return withClaim(name, (Object) value);
+            addClaim(name, value);
+            return this;
         }
 
         /**
@@ -310,7 +315,8 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, String value) throws IllegalArgumentException {
             assertNonNull(name);
-            return withClaim(name, (Object) value);
+            addClaim(name, value);
+            return this;
         }
 
         /**
@@ -324,7 +330,8 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, Date value) throws IllegalArgumentException {
             assertNonNull(name);
-            return withClaim(name, (Object) value);
+            addClaim(name, value);
+            return this;
         }
 
         /**
@@ -337,19 +344,6 @@ public final class JWTCreator {
          * @throws IllegalArgumentException if the name is null.
          */
         public Builder withClaim(String name, Instant value) throws IllegalArgumentException {
-            assertNonNull(name);
-            return withClaim(name, (Object) value);
-        }
-
-        /**
-         * Add a custom Claim value.
-         *
-         * @param name  the Claim's name.
-         * @param value the Claim's value.
-         * @return this same Builder instance.
-         * @throws IllegalArgumentException if the name is null.
-         */
-        public Builder withClaim(String name, Object value) throws IllegalArgumentException {
             assertNonNull(name);
             addClaim(name, value);
             return this;
@@ -421,38 +415,11 @@ public final class JWTCreator {
          *
          * @param name  the Claim's name.
          * @param items the Claim's value.
+         * @param <T>   the type of the array elements.
          * @return this same Builder instance.
          * @throws IllegalArgumentException if the name is null.
          */
-        public Builder withArrayClaim(String name, String[] items) throws IllegalArgumentException {
-            assertNonNull(name);
-            addClaim(name, items);
-            return this;
-        }
-
-        /**
-         * Add a custom Array Claim with the given items.
-         *
-         * @param name  the Claim's name.
-         * @param items the Claim's value.
-         * @return this same Builder instance.
-         * @throws IllegalArgumentException if the name is null.
-         */
-        public Builder withArrayClaim(String name, Integer[] items) throws IllegalArgumentException {
-            assertNonNull(name);
-            addClaim(name, items);
-            return this;
-        }
-
-        /**
-         * Add a custom Array Claim with the given items.
-         *
-         * @param name  the Claim's name.
-         * @param items the Claim's value.
-         * @return this same Builder instance.
-         * @throws IllegalArgumentException if the name is null
-         */
-        public Builder withArrayClaim(String name, Long[] items) throws IllegalArgumentException {
+        public <T> Builder withArrayClaim(String name, T[] items) throws IllegalArgumentException {
             assertNonNull(name);
             addClaim(name, items);
             return this;
