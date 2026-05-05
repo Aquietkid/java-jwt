@@ -1,3 +1,16 @@
+package com.auth0.jwt.algorithms;
+
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SignatureException;
+
+
+/**
+ * Abstraction over JCA cryptographic operations used by JWT signing and
+ * verification. Implementations must be thread-safe.
+ */
 public interface CryptoProvider {
     boolean verifySignatureFor(String algorithm, byte[] secretBytes,
             String header, String payload, byte[] signatureBytes)
