@@ -27,7 +27,7 @@ class CryptoHelper implements CryptoProvider {
      * @throws InvalidKeyException      if the given key is inappropriate for initializing the specified algorithm.
      */
 
-    boolean verifySignatureFor(
+    public boolean verifySignatureFor(
             String algorithm,
             byte[] secretBytes,
             String header,
@@ -74,7 +74,7 @@ class CryptoHelper implements CryptoProvider {
      * @throws NoSuchAlgorithmException if the algorithm is not supported.
      * @throws InvalidKeyException      if the given key is inappropriate for initializing the specified algorithm.
      */
-    boolean verifySignatureFor(
+    public boolean verifySignatureFor(
             String algorithm,
             PublicKey publicKey,
             String header,
@@ -125,7 +125,7 @@ class CryptoHelper implements CryptoProvider {
      * @throws SignatureException       if this signature object is not initialized properly
      *                                  or if this signature algorithm is unable to process the input data provided.
      */
-    byte[] createSignatureFor(
+    public byte[] createSignatureFor(
             String algorithm,
             PrivateKey privateKey,
             byte[] headerBytes,
@@ -150,7 +150,7 @@ class CryptoHelper implements CryptoProvider {
      * @throws NoSuchAlgorithmException if the algorithm is not supported.
      * @throws InvalidKeyException      if the given key is inappropriate for initializing the specified algorithm.
      */
-    byte[] createSignatureFor(
+    public byte[] createSignatureFor(
             String algorithm,
             byte[] secretBytes,
             byte[] headerBytes,
@@ -174,7 +174,7 @@ class CryptoHelper implements CryptoProvider {
      * @throws NoSuchAlgorithmException if the algorithm is not supported.
      * @throws InvalidKeyException      if the given key is inappropriate for initializing the specified algorithm.
      */
-    byte[] createSignatureFor(String algorithm, byte[] secretBytes, byte[] contentBytes)
+    public byte[] createSignatureFor(String algorithm, byte[] secretBytes, byte[] contentBytes)
             throws NoSuchAlgorithmException, InvalidKeyException {
         final Mac mac = Mac.getInstance(algorithm);
         mac.init(new SecretKeySpec(secretBytes, algorithm));
@@ -195,7 +195,7 @@ class CryptoHelper implements CryptoProvider {
      *                                  or if this signature algorithm is unable to process the input data provided.
      */
 
-    byte[] createSignatureFor(
+    public byte[] createSignatureFor(
             String algorithm,
             PrivateKey privateKey,
             byte[] contentBytes

@@ -213,7 +213,7 @@ public class RSAAlgorithmTest {
         exception.expectMessage("The Token's Signature resulted invalid when verified using the Algorithm: some-alg");
         exception.expectCause(isA(NoSuchAlgorithmException.class));
         
-        CryptoHelper crypto = mock(CryptoProvider.class);
+        CryptoProvider crypto = mock(CryptoProvider.class);
         when(crypto.verifySignatureFor(anyString(), any(PublicKey.class), any(String.class), any(String.class), any(byte[].class)))
                 .thenThrow(NoSuchAlgorithmException.class);
 
@@ -231,7 +231,7 @@ public class RSAAlgorithmTest {
         exception.expectMessage("The Token's Signature resulted invalid when verified using the Algorithm: some-alg");
         exception.expectCause(isA(InvalidKeyException.class));
 
-        CryptoHelper crypto = mock(CryptoProvider.class);
+        CryptoProvider crypto = mock(CryptoProvider.class);
         when(crypto.verifySignatureFor(anyString(), any(PublicKey.class), any(String.class), any(String.class), any(byte[].class)))
                 .thenThrow(InvalidKeyException.class);
 
@@ -249,7 +249,7 @@ public class RSAAlgorithmTest {
         exception.expectMessage("The Token's Signature resulted invalid when verified using the Algorithm: some-alg");
         exception.expectCause(isA(SignatureException.class));
 
-        CryptoHelper crypto = mock(CryptoProvider.class);
+        CryptoProvider crypto = mock(CryptoProvider.class);
         when(crypto.verifySignatureFor(anyString(), any(PublicKey.class), any(String.class), any(String.class), any(byte[].class)))
                 .thenThrow(SignatureException.class);
 
@@ -466,7 +466,7 @@ public class RSAAlgorithmTest {
         exception.expectMessage("The Token's Signature couldn't be generated when signing using the Algorithm: some-algorithm");
         exception.expectCause(isA(NoSuchAlgorithmException.class));
 
-        CryptoHelper crypto = mock(CryptoProvider.class);
+        CryptoProvider crypto = mock(CryptoProvider.class);
         when(crypto.createSignatureFor(anyString(), any(PrivateKey.class), any(byte[].class), any(byte[].class)))
                 .thenThrow(NoSuchAlgorithmException.class);
 
@@ -483,7 +483,7 @@ public class RSAAlgorithmTest {
         exception.expectMessage("The Token's Signature couldn't be generated when signing using the Algorithm: some-algorithm");
         exception.expectCause(isA(InvalidKeyException.class));
 
-        CryptoHelper crypto = mock(CryptoProvider.class);
+        CryptoProvider crypto = mock(CryptoProvider.class);
         when(crypto.createSignatureFor(anyString(), any(PrivateKey.class), any(byte[].class), any(byte[].class)))
                 .thenThrow(InvalidKeyException.class);
 
@@ -500,7 +500,7 @@ public class RSAAlgorithmTest {
         exception.expectMessage("The Token's Signature couldn't be generated when signing using the Algorithm: some-algorithm");
         exception.expectCause(isA(SignatureException.class));
 
-        CryptoHelper crypto = mock(CryptoProvider.class);
+        CryptoProvider crypto = mock(CryptoProvider.class);
         when(crypto.createSignatureFor(anyString(), any(PrivateKey.class), any(byte[].class), any(byte[].class)))
                 .thenThrow(SignatureException.class);
 
