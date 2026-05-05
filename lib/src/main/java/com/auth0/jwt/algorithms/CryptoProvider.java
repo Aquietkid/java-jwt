@@ -1,4 +1,4 @@
-public class CryptoProvider {
+public interface CryptoProvider {
     boolean verifySignatureFor(String algorithm, byte[] secretBytes,
             String header, String payload, byte[] signatureBytes)
             throws NoSuchAlgorithmException, InvalidKeyException;
