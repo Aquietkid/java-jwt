@@ -19,13 +19,14 @@ class HMACAlgorithm extends Algorithm {
 
     private final CryptoProvider crypto;
     private final byte[] secret;
+    private static final String ERR_SECRET_NULL = "The Secret cannot be null";
 
     //Visible for testing
     HMACAlgorithm(CryptoProvider crypto, String id, String algorithm, byte[] secretBytes)
             throws IllegalArgumentException {
         super(id, algorithm);
         if (secretBytes == null) {
-            throw new IllegalArgumentException("The Secret cannot be null");
+            throw new IllegalArgumentException(ERR_SECRET_NULL);
         }
         this.secret = Arrays.copyOf(secretBytes, secretBytes.length);
         this.crypto = crypto;
@@ -42,7 +43,7 @@ class HMACAlgorithm extends Algorithm {
     //Visible for testing
     static byte[] getSecretBytes(String secret) throws IllegalArgumentException {
         if (secret == null) {
-            throw new IllegalArgumentException("The Secret cannot be null");
+            throw new IllegalArgumentException(ERR_SECRET_NULL);
         }
         return secret.getBytes(StandardCharsets.UTF_8);
     }

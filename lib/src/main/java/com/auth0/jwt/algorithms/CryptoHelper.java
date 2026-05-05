@@ -12,7 +12,7 @@ import java.security.*;
  */
 class CryptoHelper implements CryptoProvider {
 
-    private static final byte JWT_PART_SEPARATOR = (byte) 46;
+    static final byte JWT_PART_SEPARATOR = (byte) '.';
 
     /**
      * Verify signature for JWT header and payload.
