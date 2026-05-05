@@ -258,8 +258,7 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, Boolean value) throws IllegalArgumentException {
             assertNonNull(name);
-            addClaim(name, value);
-            return this;
+            return withClaim(name, (Object) value);
         }
 
         /**
@@ -272,8 +271,7 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, Integer value) throws IllegalArgumentException {
             assertNonNull(name);
-            addClaim(name, value);
-            return this;
+            return withClaim(name, (Object) value);
         }
 
         /**
@@ -286,8 +284,7 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, Long value) throws IllegalArgumentException {
             assertNonNull(name);
-            addClaim(name, value);
-            return this;
+            return withClaim(name, (Object) value);
         }
 
         /**
@@ -300,8 +297,7 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, Double value) throws IllegalArgumentException {
             assertNonNull(name);
-            addClaim(name, value);
-            return this;
+            return withClaim(name, (Object) value);
         }
 
         /**
@@ -314,8 +310,7 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, String value) throws IllegalArgumentException {
             assertNonNull(name);
-            addClaim(name, value);
-            return this;
+            return withClaim(name, (Object) value);
         }
 
         /**
@@ -329,8 +324,7 @@ public final class JWTCreator {
          */
         public Builder withClaim(String name, Date value) throws IllegalArgumentException {
             assertNonNull(name);
-            addClaim(name, value);
-            return this;
+            return withClaim(name, (Object) value);
         }
 
         /**
@@ -343,6 +337,19 @@ public final class JWTCreator {
          * @throws IllegalArgumentException if the name is null.
          */
         public Builder withClaim(String name, Instant value) throws IllegalArgumentException {
+            assertNonNull(name);
+            return withClaim(name, (Object) value);
+        }
+
+        /**
+         * Add a custom Claim value.
+         *
+         * @param name  the Claim's name.
+         * @param value the Claim's value.
+         * @return this same Builder instance.
+         * @throws IllegalArgumentException if the name is null.
+         */
+        public Builder withClaim(String name, Object value) throws IllegalArgumentException {
             assertNonNull(name);
             addClaim(name, value);
             return this;
