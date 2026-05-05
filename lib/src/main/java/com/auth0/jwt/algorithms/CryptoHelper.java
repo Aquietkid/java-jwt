@@ -10,7 +10,7 @@ import java.security.*;
  * <p>
  * This class is thread-safe.
  */
-class CryptoHelper {
+class CryptoHelper implements CryptoProvider {
 
     private static final byte JWT_PART_SEPARATOR = (byte) 46;
 

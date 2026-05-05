@@ -17,11 +17,11 @@ import java.util.Base64;
  */
 class HMACAlgorithm extends Algorithm {
 
-    private final CryptoHelper crypto;
+    private final CryptoProvider crypto;
     private final byte[] secret;
 
     //Visible for testing
-    HMACAlgorithm(CryptoHelper crypto, String id, String algorithm, byte[] secretBytes)
+    HMACAlgorithm(CryptoProvider crypto, String id, String algorithm, byte[] secretBytes)
             throws IllegalArgumentException {
         super(id, algorithm);
         if (secretBytes == null) {

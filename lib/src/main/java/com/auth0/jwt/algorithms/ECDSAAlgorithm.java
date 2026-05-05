@@ -21,11 +21,11 @@ import java.util.Base64;
 class ECDSAAlgorithm extends Algorithm {
 
     private final ECDSAKeyProvider keyProvider;
-    private final CryptoHelper crypto;
+    private final CryptoProvider crypto;
     private final int ecNumberSize;
 
     //Visible for testing
-    ECDSAAlgorithm(CryptoHelper crypto, String id, String algorithm, int ecNumberSize, ECDSAKeyProvider keyProvider)
+    ECDSAAlgorithm(CryptoProvider crypto, String id, String algorithm, int ecNumberSize, ECDSAKeyProvider keyProvider)
             throws IllegalArgumentException {
         super(id, algorithm);
         if (keyProvider == null) {

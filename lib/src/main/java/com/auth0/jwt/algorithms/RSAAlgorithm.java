@@ -20,10 +20,10 @@ import java.util.Base64;
 class RSAAlgorithm extends Algorithm {
 
     private final RSAKeyProvider keyProvider;
-    private final CryptoHelper crypto;
+    private final CryptoProvider crypto;
 
     //Visible for testing
-    RSAAlgorithm(CryptoHelper crypto, String id, String algorithm, RSAKeyProvider keyProvider)
+    RSAAlgorithm(CryptoProvider crypto, String id, String algorithm, RSAKeyProvider keyProvider)
             throws IllegalArgumentException {
         super(id, algorithm);
         if (keyProvider == null) {
